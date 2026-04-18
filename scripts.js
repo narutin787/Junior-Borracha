@@ -2,158 +2,669 @@
 const INITIAL_VEHICLES = [
     {
         id: 1,
-        brand: "Toyota",
-        model: "Corolla XEi",
-        year: "2022/2022",
-        km: 25000,
-        price: 135900,
+        brand: "Fiat",
+        model: "ARGO DRIVE 1.0",
+        year: "2024/2025",
+        km: 56,
+        price: 77000,
         fuel: "Flex",
-        transmission: "Automático",
-        category: "Sedans",
-        color: "Prata",
-        image: "https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?q=80&w=800&auto=format&fit=crop",
-        description: "Único dono, todas as revisões na concessionária. Estado de zero quilômetro, sem detalhes na pintura ou interior.",
-        city: "São Paulo, SP"
+        transmission: "Manual",
+        category: "Hatchbacks",
+        color: "Branca",
+        image: "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?q=80&w=800&auto=format&fit=crop", // White Hatch
+        description: "Veículo em excelente estado de conservação, revisado e com garantia de procedência. Ótima oportunidade.",
+        city: "São Luís, MA"
     },
     {
         id: 2,
-        brand: "Honda",
-        model: "Civic Touring",
-        year: "2021/2021",
-        km: 32000,
-        price: 142000,
-        fuel: "Gasolina",
-        transmission: "Automático",
+        brand: "Chevrolet",
+        model: "CLASSIC LS",
+        year: "2012/2013",
+        km: 108,
+        price: 32000,
+        fuel: "Flex",
+        transmission: "Manual",
         category: "Sedans",
-        color: "Branco",
-        image: "https://images.unsplash.com/photo-1599912027806-cfec9f5944b6?q=80&w=800&auto=format&fit=crop",
-        description: "Versão topo de linha com motor turbo, teto solar e sistema de som premium. Impecável.",
-        city: "São Paulo, SP"
+        color: "Prata",
+        image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=800&auto=format&fit=crop", // Silver Sedan
+        description: "Veículo em excelente estado de conservação, revisado e com garantia de procedência. Ótima oportunidade.",
+        city: "São Luís, MA"
     },
     {
         id: 3,
+        brand: "Chevrolet",
+        model: "CELTA LT 1.0",
+        year: "2013/2014",
+        km: 0,
+        price: 38000,
+        fuel: "Flex",
+        transmission: "Manual",
+        category: "Hatchbacks",
+        color: "Prata",
+        image: "https://images.unsplash.com/photo-1583121274602-3e2820c69888?q=80&w=800&auto=format&fit=crop", // Silver Hatch
+        description: "Veículo em excelente estado de conservação, revisado e com garantia de procedência. Ótima oportunidade.",
+        city: "São Luís, MA"
+    },
+    {
+        id: 4,
+        brand: "Fiat",
+        model: "CRONOS DRIVE 1.0",
+        year: "2024/2025",
+        km: 20,
+        price: 84000,
+        fuel: "Flex",
+        transmission: "Manual",
+        category: "Sedans",
+        color: "Branco",
+        image: "https://images.unsplash.com/photo-1550355291-bbee04a92027?q=80&w=800&auto=format&fit=crop", // White Sedan
+        description: "Veículo em excelente estado de conservação, revisado e com garantia de procedência. Ótima oportunidade.",
+        city: "São Luís, MA"
+    },
+    {
+        id: 5,
+        brand: "Renault",
+        model: "DUSTER INTENSE PLUS 1.6",
+        year: "2024/2025",
+        km: 22,
+        price: 111000,
+        fuel: "Flex",
+        transmission: "Manual",
+        category: "SUVs",
+        color: "Prata",
+        image: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=800&auto=format&fit=crop", // Silver SUV
+        description: "Veículo em excelente estado de conservação, revisado e com garantia de procedência. Ótima oportunidade.",
+        city: "São Luís, MA"
+    },
+    {
+        id: 6,
+        brand: "Renault",
+        model: "DUSTER DYNAMIQUE 1.6",
+        year: "2016/2016",
+        km: 0,
+        price: 62000,
+        fuel: "Flex",
+        transmission: "Manual",
+        category: "SUVs",
+        color: "Marrom",
+        image: "https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?q=80&w=800&auto=format&fit=crop", // Brown/Dark SUV
+        description: "Veículo em excelente estado de conservação, revisado e com garantia de procedência. Ótima oportunidade.",
+        city: "São Luís, MA"
+    },
+    {
+        id: 7,
+        brand: "Ford",
+        model: "ECOSPORT FREESTYLE 1.6 XLT",
+        year: "2012/2012",
+        km: 105,
+        price: 47000,
+        fuel: "Flex",
+        transmission: "Manual",
+        category: "SUVs",
+        color: "Prata",
+        image: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=800&auto=format&fit=crop", // Silver SUV
+        description: "Veículo em excelente estado de conservação, revisado e com garantia de procedência. Ótima oportunidade.",
+        city: "São Luís, MA"
+    },
+    {
+        id: 8,
+        brand: "Toyota",
+        model: "ETIOS SD XS 1.5",
+        year: "2016/2017",
+        km: 78,
+        price: 60000,
+        fuel: "Flex",
+        transmission: "Manual",
+        category: "Sedans",
+        color: "Branco",
+        image: "https://images.unsplash.com/photo-1550355291-bbee04a92027?q=80&w=800&auto=format&fit=crop", // White Sedan
+        description: "Veículo em excelente estado de conservação, revisado e com garantia de procedência. Ótima oportunidade.",
+        city: "São Luís, MA"
+    },
+    {
+        id: 9,
         brand: "Volkswagen",
-        model: "T-Cross Highline",
-        year: "2023/2023",
-        km: 12000,
-        price: 158900,
+        model: "FOX RUN 1.6",
+        year: "2016/2017",
+        km: 75,
+        price: 58000,
+        fuel: "Flex",
+        transmission: "Manual",
+        category: "Hatchbacks",
+        color: "Prata",
+        image: "https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?q=80&w=800&auto=format&fit=crop", // Silver Hatch
+        description: "Veículo em excelente estado de conservação, revisado e com garantia de procedência. Ótima oportunidade.",
+        city: "São Luís, MA"
+    },
+    {
+        id: 10,
+        brand: "Volkswagen",
+        model: "GOL 1.0",
+        year: "2019/2020",
+        km: 0,
+        price: 48000,
+        fuel: "Flex",
+        transmission: "Manual",
+        category: "Hatchbacks",
+        color: "Prata",
+        image: "https://images.unsplash.com/photo-1583121274602-3e2820c69888?q=80&w=800&auto=format&fit=crop", // Silver Hatch
+        description: "Veículo em excelente estado de conservação, revisado e com garantia de procedência. Ótima oportunidade.",
+        city: "São Luís, MA"
+    },
+    {
+        id: 11,
+        brand: "Hyundai",
+        model: "HB20 1.0 COMFORT",
+        year: "2019/2019",
+        km: 80,
+        price: 61000,
+        fuel: "Flex",
+        transmission: "Manual",
+        category: "Hatchbacks",
+        color: "Cinza",
+        image: "https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?q=80&w=800&auto=format&fit=crop", // Grey Hatch
+        description: "Veículo em excelente estado de conservação, revisado e com garantia de procedência. Ótima oportunidade.",
+        city: "São Luís, MA"
+    },
+    {
+        id: 12,
+        brand: "Hyundai",
+        model: "HB20 1.0 SENSE",
+        year: "2022/2023",
+        km: 0,
+        price: 67000,
+        fuel: "Flex",
+        transmission: "Manual",
+        category: "Hatchbacks",
+        color: "Cinza",
+        image: "https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?q=80&w=800&auto=format&fit=crop", // Grey Hatch
+        description: "Veículo em excelente estado de conservação, revisado e com garantia de procedência. Ótima oportunidade.",
+        city: "São Luís, MA"
+    },
+    {
+        id: 13,
+        brand: "Hyundai",
+        model: "HB20 1.0 SENSE",
+        year: "2024/2025",
+        km: 16,
+        price: 74000,
+        fuel: "Flex",
+        transmission: "Manual",
+        category: "Hatchbacks",
+        color: "Branco",
+        image: "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?q=80&w=800&auto=format&fit=crop", // White Hatch
+        description: "Veículo em excelente estado de conservação, revisado e com garantia de procedência. Ótima oportunidade.",
+        city: "São Luís, MA"
+    },
+    {
+        id: 14,
+        brand: "Hyundai",
+        model: "HB20 1.6 PREMIUM",
+        year: "2015/2016",
+        km: 76,
+        price: 66000,
+        fuel: "Flex",
+        transmission: "Automático",
+        category: "Hatchbacks",
+        color: "Branco",
+        image: "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?q=80&w=800&auto=format&fit=crop", // White Hatch
+        description: "Veículo em excelente estado de conservação, revisado e com garantia de procedência. Ótima oportunidade.",
+        city: "São Luís, MA"
+    },
+    {
+        id: 15,
+        brand: "Hyundai",
+        model: "HB20S 1.0 COMFORT",
+        year: "2024/2025",
+        km: 16,
+        price: 85000,
+        fuel: "Flex",
+        transmission: "Manual",
+        category: "Sedans",
+        color: "Cinza",
+        image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=800&auto=format&fit=crop", // Grey Sedan
+        description: "Veículo em excelente estado de conservação, revisado e com garantia de procedência. Ótima oportunidade.",
+        city: "São Luís, MA"
+    },
+    {
+        id: 16,
+        brand: "Toyota",
+        model: "HILUX CD SRV 4X4 2.7 FLEX",
+        year: "2013/2013",
+        km: 146,
+        price: 120000,
+        fuel: "Flex",
+        transmission: "Automático",
+        category: "Picapes",
+        color: "Prata",
+        image: "https://images.unsplash.com/photo-1533558701576-23c65e0272fb?q=80&w=800&auto=format&fit=crop", // Pickup
+        description: "Veículo em excelente estado de conservação, revisado e com garantia de procedência. Ótima oportunidade.",
+        city: "São Luís, MA"
+    },
+    {
+        id: 17,
+        brand: "Toyota",
+        model: "HILUX CD SRV 4X4 2.8 DIESEL",
+        year: "2012/2013",
+        km: 130,
+        price: 130000,
+        fuel: "Diesel",
+        transmission: "Automático",
+        category: "Picapes",
+        color: "Prata",
+        image: "https://images.unsplash.com/photo-1533558701576-23c65e0272fb?q=80&w=800&auto=format&fit=crop", // Pickup
+        description: "Veículo em excelente estado de conservação, revisado e com garantia de procedência. Ótima oportunidade.",
+        city: "São Luís, MA"
+    },
+    {
+        id: 18,
+        brand: "Toyota",
+        model: "HILUX CD SRV 4X4 3.0 DIESEL",
+        year: "2011/2012",
+        km: 188,
+        price: 126000,
+        fuel: "Diesel",
+        transmission: "Automático",
+        category: "Picapes",
+        color: "Preta",
+        image: "https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=800&auto=format&fit=crop", // Dark Pickup
+        description: "Veículo em excelente estado de conservação, revisado e com garantia de procedência. Ótima oportunidade.",
+        city: "São Luís, MA"
+    },
+    {
+        id: 19,
+        brand: "Honda",
+        model: "HRV EX 1.8",
+        year: "2021/2021",
+        km: 95,
+        price: 115000,
         fuel: "Flex",
         transmission: "Automático",
         category: "SUVs",
         color: "Cinza",
-        image: "https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?q=80&w=800&auto=format&fit=crop",
-        description: "O SUV mais seguro da categoria. Painel digital, teto solar panorâmico e som Beats.",
-        city: "São Paulo, SP"
+        image: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=800&auto=format&fit=crop", // SUV
+        description: "Veículo em excelente estado de conservação, revisado e com garantia de procedência. Ótima oportunidade.",
+        city: "São Luís, MA"
     },
     {
-        id: 4,
-        brand: "Jeep",
-        model: "Compass Longitude",
+        id: 20,
+        brand: "Suzuki",
+        model: "JIMMY 4SPORT",
+        year: "2020/2021",
+        km: 41,
+        price: 115000,
+        fuel: "Gasolina",
+        transmission: "Manual",
+        category: "SUVs",
+        color: "Verde",
+        image: "https://images.unsplash.com/photo-1469033051333-e41b224e963b?q=80&w=800&auto=format&fit=crop", // Offroad SUV
+        description: "Veículo em excelente estado de conservação, revisado e com garantia de procedência. Ótima oportunidade.",
+        city: "São Luís, MA"
+    },
+    {
+        id: 21,
+        brand: "Suzuki",
+        model: "JIMMY 4SPORT",
+        year: "2010/2011",
+        km: 0,
+        price: 75000,
+        fuel: "Gasolina",
+        transmission: "Manual",
+        category: "SUVs",
+        color: "Verde",
+        image: "https://images.unsplash.com/photo-1469033051333-e41b224e963b?q=80&w=800&auto=format&fit=crop", // Offroad SUV
+        description: "Veículo em excelente estado de conservação, revisado e com garantia de procedência. Ótima oportunidade.",
+        city: "São Luís, MA"
+    },
+    {
+        id: 22,
+        brand: "Ford",
+        model: "KA SE 1.0",
+        year: "2019/2020",
+        km: 75,
+        price: 53000,
+        fuel: "Flex",
+        transmission: "Manual",
+        category: "Hatchbacks",
+        color: "Branca",
+        image: "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?q=80&w=800&auto=format&fit=crop", // White Hatch
+        description: "Veículo em excelente estado de conservação, revisado e com garantia de procedência. Ótima oportunidade.",
+        city: "São Luís, MA"
+    },
+    {
+        id: 23,
+        brand: "Ford",
+        model: "KA SE 1.0",
+        year: "2018/2018",
+        km: 79,
+        price: 45000,
+        fuel: "Flex",
+        transmission: "Manual",
+        category: "Hatchbacks",
+        color: "Vermelho",
+        image: "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?q=80&w=800&auto=format&fit=crop", // Red Hatch
+        description: "Veículo em excelente estado de conservação, revisado e com garantia de procedência. Ótima oportunidade.",
+        city: "São Luís, MA"
+    },
+    {
+        id: 24,
+        brand: "Nissan",
+        model: "MARCH S 1.0",
+        year: "2014/2015",
+        km: 95,
+        price: 42000,
+        fuel: "Flex",
+        transmission: "Manual",
+        category: "Hatchbacks",
+        color: "Prata",
+        image: "https://images.unsplash.com/photo-1583121274602-3e2820c69888?q=80&w=800&auto=format&fit=crop", // Silver Hatch
+        description: "Veículo em excelente estado de conservação, revisado e com garantia de procedência. Ótima oportunidade.",
+        city: "São Luís, MA"
+    },
+    {
+        id: 25,
+        brand: "Fiat",
+        model: "MOBI LIKE 1.0",
+        year: "2024/2025",
+        km: 28,
+        price: 65000,
+        fuel: "Flex",
+        transmission: "Manual",
+        category: "Hatchbacks",
+        color: "Branco",
+        image: "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?q=80&w=800&auto=format&fit=crop", // White Hatch
+        description: "Veículo em excelente estado de conservação, revisado e com garantia de procedência. Ótima oportunidade.",
+        city: "São Luís, MA"
+    },
+    {
+        id: 26,
+        brand: "Chevrolet",
+        model: "ONIX LTZ 1.4",
+        year: "2014/2015",
+        km: 78,
+        price: 54000,
+        fuel: "Flex",
+        transmission: "Manual",
+        category: "Hatchbacks",
+        color: "Prata",
+        image: "https://images.unsplash.com/photo-1583121274602-3e2820c69888?q=80&w=800&auto=format&fit=crop", // Silver Hatch
+        description: "Veículo em excelente estado de conservação, revisado e com garantia de procedência. Ótima oportunidade.",
+        city: "São Luís, MA"
+    },
+    {
+        id: 27,
+        brand: "Fiat",
+        model: "PALIO WAY",
+        year: "2014/2015",
+        km: 130,
+        price: 37000,
+        fuel: "Flex",
+        transmission: "Manual",
+        category: "Hatchbacks",
+        color: "Branco",
+        image: "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?q=80&w=800&auto=format&fit=crop", // White Hatch
+        description: "Veículo em excelente estado de conservação, revisado e com garantia de procedência. Ótima oportunidade.",
+        city: "São Luís, MA"
+    },
+    {
+        id: 28,
+        brand: "Fiat",
+        model: "PALIO FIRE",
+        year: "2009/2010",
+        km: 130,
+        price: 30000,
+        fuel: "Flex",
+        transmission: "Manual",
+        category: "Hatchbacks",
+        color: "Prata",
+        image: "https://images.unsplash.com/photo-1583121274602-3e2820c69888?q=80&w=800&auto=format&fit=crop", // Silver Hatch
+        description: "Veículo em excelente estado de conservação, revisado e com garantia de procedência. Ótima oportunidade.",
+        city: "São Luís, MA"
+    },
+    {
+        id: 29,
+        brand: "Volkswagen",
+        model: "POLO 1.0",
+        year: "2019/2020",
+        km: 132,
+        price: 68000,
+        fuel: "Flex",
+        transmission: "Manual",
+        category: "Hatchbacks",
+        color: "Prata",
+        image: "https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?q=80&w=800&auto=format&fit=crop", // Silver Hatch
+        description: "Veículo em excelente estado de conservação, revisado e com garantia de procedência. Ótima oportunidade.",
+        city: "São Luís, MA"
+    },
+    {
+        id: 30,
+        brand: "Volkswagen",
+        model: "POLO MPI 1.0",
+        year: "2023/2024",
+        km: 46,
+        price: 78000,
+        fuel: "Flex",
+        transmission: "Manual",
+        category: "Hatchbacks",
+        color: "Branco",
+        image: "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?q=80&w=800&auto=format&fit=crop", // White Hatch
+        description: "Veículo em excelente estado de conservação, revisado e com garantia de procedência. Ótima oportunidade.",
+        city: "São Luís, MA"
+    },
+    {
+        id: 31,
+        brand: "Renault",
+        model: "SANDERO AUTHENTIC",
+        year: "2014/2014",
+        km: 90,
+        price: 35000,
+        fuel: "Flex",
+        transmission: "Manual",
+        category: "Hatchbacks",
+        color: "Prata",
+        image: "https://images.unsplash.com/photo-1583121274602-3e2820c69888?q=80&w=800&auto=format&fit=crop", // Silver Hatch
+        description: "Veículo em excelente estado de conservação, revisado e com garantia de procedência. Ótima oportunidade.",
+        city: "São Luís, MA"
+    },
+    {
+        id: 32,
+        brand: "Renault",
+        model: "SANDERO EXPRESSION 1.0",
+        year: "2017/2018",
+        km: 79,
+        price: 42000,
+        fuel: "Flex",
+        transmission: "Manual",
+        category: "Hatchbacks",
+        color: "Prata",
+        image: "https://images.unsplash.com/photo-1583121274602-3e2820c69888?q=80&w=800&auto=format&fit=crop", // Silver Hatch
+        description: "Veículo em excelente estado de conservação, revisado e com garantia de procedência. Ótima oportunidade.",
+        city: "São Luís, MA"
+    },
+    {
+        id: 33,
+        brand: "Volkswagen",
+        model: "SAVEIRO 1.6 CS ROBUST",
+        year: "2023/2024",
+        km: 45,
+        price: 81000,
+        fuel: "Flex",
+        transmission: "Manual",
+        category: "Picapes",
+        color: "Branco",
+        image: "https://images.unsplash.com/photo-1533558701576-23c65e0272fb?q=80&w=800&auto=format&fit=crop", // White Pickup
+        description: "Veículo em excelente estado de conservação, revisado e com garantia de procedência. Ótima oportunidade.",
+        city: "São Luís, MA"
+    },
+    {
+        id: 34,
+        brand: "Volkswagen",
+        model: "SAVEIRO 1.6 CS ROBUST",
+        year: "2024/2024",
+        km: 27,
+        price: 81000,
+        fuel: "Flex",
+        transmission: "Manual",
+        category: "Picapes",
+        color: "Branca",
+        image: "https://images.unsplash.com/photo-1533558701576-23c65e0272fb?q=80&w=800&auto=format&fit=crop", // White Pickup
+        description: "Veículo em excelente estado de conservação, revisado e com garantia de procedência. Ótima oportunidade.",
+        city: "São Luís, MA"
+    },
+    {
+        id: 35,
+        brand: "Volkswagen",
+        model: "SAVEIRO TREDLINE 1.6 CS",
+        year: "2022/2023",
+        km: 47,
+        price: 80000,
+        fuel: "Flex",
+        transmission: "Manual",
+        category: "Picapes",
+        color: "Prata",
+        image: "https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=800&auto=format&fit=crop", // Silver Pickup
+        description: "Veículo em excelente estado de conservação, revisado e com garantia de procedência. Ótima oportunidade.",
+        city: "São Luís, MA"
+    },
+    {
+        id: 36,
+        brand: "Fiat",
+        model: "STRADA ADVENTURE CD",
+        year: "2012/2012",
+        km: 0,
+        price: 54000,
+        fuel: "Flex",
+        transmission: "Manual",
+        category: "Picapes",
+        color: "Vermelho",
+        image: "https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=800&auto=format&fit=crop", // Pickup
+        description: "Veículo em excelente estado de conservação, revisado e com garantia de procedência. Ótima oportunidade.",
+        city: "São Luís, MA"
+    },
+    {
+        id: 37,
+        brand: "Toyota",
+        model: "SW4 GRS 2.8 4X4 DIESEL",
         year: "2022/2022",
-        km: 28000,
-        price: 165000,
+        km: 0,
+        price: 335000,
         fuel: "Diesel",
         transmission: "Automático",
         category: "SUVs",
-        color: "Azul",
-        image: "https://images.unsplash.com/photo-1611016186353-9af58c69a533?q=80&w=800&auto=format&fit=crop",
-        description: "Motor TD350 com tração 4x4. Excelente para cidade e off-road leve. Interior em couro marrom.",
-        city: "Curitiba, PR"
+        color: "Branca",
+        image: "https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?q=80&w=800&auto=format&fit=crop", // White SUV
+        description: "Veículo em excelente estado de conservação, revisado e com garantia de procedência. Ótima oportunidade.",
+        city: "São Luís, MA"
     },
     {
-        id: 5,
-        brand: "Chevrolet",
-        model: "Onix RS",
-        year: "2024/2024",
-        km: 5000,
-        price: 99000,
+        id: 38,
+        brand: "Toyota",
+        model: "SW4 SRV 4X4",
+        year: "2009/2010",
+        km: 0,
+        price: 115000,
+        fuel: "Diesel",
+        transmission: "Automático",
+        category: "SUVs",
+        color: "Prata",
+        image: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=800&auto=format&fit=crop", // Silver SUV
+        description: "Veículo em excelente estado de conservação, revisado e com garantia de procedência. Ótima oportunidade.",
+        city: "São Luís, MA"
+    },
+    {
+        id: 39,
+        brand: "Toyota",
+        model: "SW4 SRV 4X4 3.0 SLUG",
+        year: "2007/2007",
+        km: 240,
+        price: 78000,
+        fuel: "Diesel",
+        transmission: "Automático",
+        category: "SUVs",
+        color: "Prata",
+        image: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=800&auto=format&fit=crop", // Silver SUV
+        description: "Veículo em excelente estado de conservação, revisado e com garantia de procedência. Ótima oportunidade.",
+        city: "São Luís, MA"
+    },
+    {
+        id: 40,
+        brand: "Toyota",
+        model: "SW4 SRV 4X4 2.8 DIESEL",
+        year: "2023/2024",
+        km: 101,
+        price: 333000,
+        fuel: "Diesel",
+        transmission: "Automático",
+        category: "SUVs",
+        color: "Branco",
+        image: "https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?q=80&w=800&auto=format&fit=crop", // White SUV
+        description: "Veículo em excelente estado de conservação, revisado e com garantia de procedência. Ótima oportunidade.",
+        city: "São Luís, MA"
+    },
+    {
+        id: 41,
+        brand: "Volkswagen",
+        model: "UP TSI MOVE 1.0",
+        year: "2017/2018",
+        km: 75,
+        price: 62000,
+        fuel: "Flex",
+        transmission: "Manual",
+        category: "Hatchbacks",
+        color: "Vermelho",
+        image: "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?q=80&w=800&auto=format&fit=crop", // Red Hatch
+        description: "Veículo em excelente estado de conservação, revisado e com garantia de procedência. Ótima oportunidade.",
+        city: "São Luís, MA"
+    },
+    {
+        id: 42,
+        brand: "Toyota",
+        model: "YARIS XL 1.5",
+        year: "2024/2025",
+        km: 0,
+        price: 100000,
         fuel: "Flex",
         transmission: "Automático",
         category: "Hatchbacks",
-        color: "Vermelho",
-        image: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=800&auto=format&fit=crop",
-        description: "Visual esportivo, Wi-Fi integrado e conectividade total Apple CarPlay e Android Auto.",
-        city: "Belo Horizonte, MG"
+        color: "Preta",
+        image: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=800&auto=format&fit=crop", // Black Hatch
+        description: "Veículo em excelente estado de conservação, revisado e com garantia de procedência. Ótima oportunidade.",
+        city: "São Luís, MA"
     },
     {
-        id: 6,
-        brand: "BMW",
-        model: "320i M Sport",
-        year: "2023/2024",
-        km: 8000,
-        price: 335000,
+        id: 43,
+        brand: "Toyota",
+        model: "YARIS XL 1.5",
+        year: "2024/2025",
+        km: 29,
+        price: 100000,
         fuel: "Flex",
         transmission: "Automático",
-        category: "Sedans",
-        color: "Branco",
-        image: "https://images.unsplash.com/photo-1555215695-3004980ad54e?q=80&w=800&auto=format&fit=crop",
-        description: "Pacote M Sport completo. O prazer de dirigir com a tecnologia alemã. Garantia de fábrica.",
-        city: "São Paulo, SP"
+        category: "Hatchbacks",
+        color: "Preta",
+        image: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=800&auto=format&fit=crop", // Black Hatch
+        description: "Veículo em excelente estado de conservação, revisado e com garantia de procedência. Ótima oportunidade.",
+        city: "São Luís, MA"
     }
 ];
 
 // Gerador para completar 50 veículos para demonstração
-const brands = ["Toyota", "Honda", "Volkswagen", "Ford", "Chevrolet", "Jeep", "BMW", "Audi", "Hyundai", "Fiat"];
+const brands = ["Toyota", "Honda", "Volkswagen", "Ford", "Chevrolet", "Renault", "Fiat", "Hyundai", "Suzuki", "Nissan"];
 const models = {
-    "Toyota": ["Hilux SRX", "Yaris Hatch", "SW4 Diamond"],
-    "Honda": ["HR-V EXL", "City Sedã", "Accord Hybrid"],
-    "Volkswagen": ["Polo GTS", "Nivus Highline", "Amarok V6"],
-    "Jeep": ["Renegade Trailhawk", "Commander Overland"],
-    "BMW": ["X1 sDrive", "X5 xDrive", "M3 Competition"],
-    "Ford": ["Ranger Limited", "Mustang Mach 1", "Bronco Sport"],
-    "Fiat": ["Toro Volcano", "Pulse Abarth", "Fastback Limited"],
-    "Chevrolet": ["S10 High Country", "Tracker Premier", "Equinox RS"],
-    "Hyundai": ["HB20 Platinum Plus", "Creta Ultimate"],
-    "Audi": ["A3 Performance", "Q3 Sportback", "RS6 Avant"]
+    "Toyota": ["HILUX CD SRV", "SW4 GRS", "ETIOS SD XS", "YARIS XL"],
+    "Honda": ["HRV EX 1.8"],
+    "Volkswagen": ["FOX RUN", "GOL 1.0", "POLO MPI", "SAVEIRO ROBUST", "UP TSI"],
+    "Ford": ["ECOSPORT FREESTYLE", "KA SE 1.0"],
+    "Chevrolet": ["CLASSIC LS", "CELTA LT", "ONIX LTZ"],
+    "Renault": ["DUSTER INTENSE", "SANDERO AUTHENTIC"],
+    "Fiat": ["ARGO DRIVE", "CRONOS DRIVE", "MOBI LIKE", "PALIO WAY", "STRADA ADVENTURE"],
+    "Hyundai": ["HB20 COMFORT", "HB20S COMFORT"],
+    "Suzuki": ["JIMMY 4SPORT"],
+    "Nissan": ["MARCH S 1.0"]
 };
-
-const modelCategoryMap = {
-    "Hilux SRX": "Picapes", "Yaris Hatch": "Hatchbacks", "SW4 Diamond": "SUVs", "Corolla XEi": "Sedans",
-    "HR-V EXL": "SUVs", "City Sedã": "Sedans", "Accord Hybrid": "Sedans", "Civic Touring": "Sedans",
-    "Polo GTS": "Hatchbacks", "Nivus Highline": "SUVs", "Amarok V6": "Picapes", "T-Cross Highline": "SUVs",
-    "Renegade Trailhawk": "SUVs", "Commander Overland": "SUVs", "Compass Longitude": "SUVs",
-    "X1 sDrive": "SUVs", "X5 xDrive": "SUVs", "M3 Competition": "Esportivos", "320i M Sport": "Sedans",
-    "Ranger Limited": "Picapes", "Mustang Mach 1": "Esportivos", "Bronco Sport": "SUVs",
-    "Toro Volcano": "Picapes", "Pulse Abarth": "Hatchbacks", "Fastback Limited": "SUVs",
-    "S10 High Country": "Picapes", "Tracker Premier": "SUVs", "Equinox RS": "SUVs", "Onix RS": "Hatchbacks",
-    "HB20 Platinum Plus": "Hatchbacks", "Creta Ultimate": "SUVs",
-    "A3 Performance": "Sedans", "Q3 Sportback": "SUVs", "RS6 Avant": "Esportivos"
-};
-
-// Lista de IDs reais do Unsplash para fotos de carros
-const carImageIds = [
-    "1494976388531-d1058494cdd8", "1503376780353-7e6692767b70",
-    "1583121274602-3e2820c69888", "1552519507-da3b142c6e3d",
-    "1492144534655-ae79c964c9d7", "1542281286-9e0a16bb7366",
-    "1525609004556-c46c7d6cf023", "1502877338535-766e1452684a",
-    "1550355291-bbee04a92027", "1533473359331-0135ef1b58bf"
-];
 
 const VEHICLES_DATA = [...INITIAL_VEHICLES];
 
-for (let i = VEHICLES_DATA.length + 1; i <= 50; i++) {
-    const brand = brands[Math.floor(Math.random() * brands.length)];
-    const modelList = models[brand];
-    const model = modelList[Math.floor(Math.random() * modelList.length)];
-    
-    const randomImageId = carImageIds[Math.floor(Math.random() * carImageIds.length)];
-    
-    VEHICLES_DATA.push({
-        id: i,
-        brand: brand,
-        model: model,
-        year: `${2019 + Math.floor(Math.random() * 6)}/2024`,
-        category: modelCategoryMap[model] || "SUVs",
-        km: Math.floor(Math.random() * 80000),
-        price: 60000 + Math.floor(Math.random() * 300000),
-        fuel: "Flex",
-        transmission: Math.random() > 0.2 ? "Automático" : "Manual",
-        color: ["Preto", "Branco", "Prata", "Cinza", "Azul"][Math.floor(Math.random() * 5)],
-        image: `https://images.unsplash.com/photo-${randomImageId}?q=80&w=800&auto=format&fit=crop`,
-        description: "Veículo em excelente estado de conservação, revisado e com garantia de procedência. Ótima oportunidade.",
-        city: "São Luís, MA"
-    });
-}
+// Removido o gerador de 50 veículos aleatórios para focar apenas no estoque real fornecido.
 
 // Seletores DOM
 const vehiclesGrid = document.getElementById('vehiclesGrid');
@@ -329,6 +840,11 @@ function openVehicleModal(vehicle) {
     document.getElementById('modalFuel').textContent = vehicle.fuel;
     document.getElementById('modalDescription').textContent = vehicle.description;
 
+    // Mensagem personalizada para o WhatsApp
+    const whatsappBtn = document.getElementById('modalWhatsappBtn');
+    const message = encodeURIComponent(`Olá! Vi no site e tenho interesse no ${vehicle.brand} ${vehicle.model} (${vehicle.year}) no valor de ${formatPrice(vehicle.price)}.`);
+    whatsappBtn.href = `https://api.whatsapp.com/send/?phone=5598985003061&text=${message}`;
+
     vehicleModal.classList.remove('hidden');
     document.body.style.overflow = 'hidden'; // Impede scroll no fundo
     lucide.createIcons();
@@ -336,7 +852,7 @@ function openVehicleModal(vehicle) {
 
 // Gerenciamento de Seções (Navegação)
 function showSection(sectionId) {
-    const sections = ['inventory', 'sell', 'financing', 'contact'];
+    const sections = ['inventory', 'sell', 'financing', 'contact', 'policies', 'terms'];
     const hero = document.querySelector('.hero');
 
     sections.forEach(id => {
@@ -377,7 +893,7 @@ drawerLinks.forEach(link => {
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         const targetId = this.getAttribute('href').substring(1);
-        const sections = ['inventory', 'sell', 'financing', 'contact'];
+        const sections = ['inventory', 'sell', 'financing', 'contact', 'policies', 'terms'];
         
         if (sections.includes(targetId)) {
             e.preventDefault();
