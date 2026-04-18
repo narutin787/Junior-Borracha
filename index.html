@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Junior Borracha Veículos - Seu próximo carro está aqui</title>
+    
+    <!-- Meta tags para SEO -->
+    <meta name="description" content="Encontre o carro dos seus sonhos na Junior Borracha Veículos. Os melhores semi-novos com garantia e procedência.">
+    <meta name="keywords" content="carros, veículos, seminovos, Toyota, Honda, Jeep, BMW">
+    
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <!-- Header / Navigation -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <div class="navbar-brand">
+                <div class="logo-icon">JB</div>
+                <div class="brand-text">
+                    <h1>JUNIOR BORRACHA</h1>
+                    <p>Veículos</p>
+                </div>
+            </div>
+
+            <div class="navbar-menu">
+                <a href="#" class="nav-link">Estoque</a>
+                <a href="#" class="nav-link">Venda seu Carro</a>
+                <a href="#" class="nav-link">Financiamento</a>
+                <a href="#" class="nav-link">Contato</a>
+            </div>
+
+            <div class="navbar-actions">
+                <button class="btn-phone">
+                    <i data-lucide="phone"></i>
+                    <span>(11) 99999-9999</span>
+                </button>
+                <button class="btn-menu-mobile">
+                    <i data-lucide="menu"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section com Search -->
+    <section class="hero">
+        <div class="hero-background">
+            <div class="glow glow-orange"></div>
+            <div class="glow glow-blue"></div>
+        </div>
+        
+        <div class="container hero-container">
+            <h2 class="hero-title">
+                Encontre o carro dos seus <span class="text-orange">sonhos</span>
+            </h2>
+            
+            <form class="search-box" id="searchForm">
+                <div class="search-input-wrapper">
+                    <label for="searchInput"><i data-lucide="search" class="search-icon"></i></label>
+                    <input 
+                        type="text" 
+                        id="searchInput"
+                        class="search-input" 
+                        placeholder="Qual carro você procura? (ex: Corolla, Civic...)"
+                    >
+                </div>
+                
+                <div class="filter-wrapper">
+                    <label for="brandFilter"><i data-lucide="filter" class="filter-icon"></i></label>
+                    <select id="brandFilter" class="filter-select">
+                        <option value="Todas">Todas as marcas</option>
+                    </select>
+                </div>
+
+                <button type="submit" id="searchButton" class="btn-search">
+                    Pesquisar
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Inventory Section -->
+    <main class="inventory">
+        <div class="container">
+            <div class="inventory-header">
+                <div class="section-title">
+                    <h3>NOSSO ESTOQUE</h3>
+                    <div class="title-underline"></div>
+                </div>
+                <p id="vehicleCount" class="vehicle-count">0 veículos encontrados</p>
+            </div>
+
+            <div id="vehiclesGrid" class="vehicles-grid">
+                <!-- Os cards serão inseridos via JavaScript -->
+            </div>
+
+            <div id="loadMoreContainer" class="load-more-container hidden">
+                <button id="btnLoadMore" class="btn-load-more">Carregar Mais</button>
+            </div>
+
+            <div id="noResults" class="no-results hidden">
+                <div class="no-results-icon">
+                    <i data-lucide="search"></i>
+                </div>
+                <h4>Nenhum veículo encontrado</h4>
+                <p>Tente ajustar seus filtros ou pesquisar por outro termo.</p>
+                <button id="clearFilters" class="btn-clear-filters">
+                    Limpar todos os filtros
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Vehicle Modal -->
+    <div id="vehicleModal" class="modal hidden">
+        <div class="modal-overlay"></div>
+        <div class="modal-container">
+            <button id="closeModal" class="modal-close">
+                <i data-lucide="x"></i>
+            </button>
+            
+            <div class="modal-content">
+                <div class="modal-image">
+                    <img id="modalImage" src="" alt="">
+                </div>
+                
+                <div class="modal-details">
+                    <div class="modal-header">
+                        <span id="modalBrand" class="brand-badge"></span>
+                        <h3 id="modalModel" class="modal-title"></h3>
+                        <p id="modalPrice" class="modal-price"></p>
+                    </div>
+
+                    <div class="modal-specs">
+                        <div class="spec-item">
+                            <i data-lucide="calendar"></i>
+                            <div>
+                                <p class="spec-label">Ano</p>
+                                <p id="modalYear" class="spec-value"></p>
+                            </div>
+                        </div>
+                        <div class="spec-item">
+                            <i data-lucide="gauge"></i>
+                            <div>
+                                <p class="spec-label">KM</p>
+                                <p id="modalKm" class="spec-value"></p>
+                            </div>
+                        </div>
+                        <div class="spec-item">
+                            <i data-lucide="settings-2"></i>
+                            <div>
+                                <p class="spec-label">Câmbio</p>
+                                <p id="modalTransmission" class="spec-value"></p>
+                            </div>
+                        </div>
+                        <div class="spec-item">
+                            <i data-lucide="fuel"></i>
+                            <div>
+                                <p class="spec-label">Combustível</p>
+                                <p id="modalFuel" class="spec-value"></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-description">
+                        <h4>Descrição</h4>
+                        <p id="modalDescription"></p>
+                    </div>
+
+                    <div class="modal-actions">
+                        <button class="btn-whatsapp">
+                            <i data-lucide="message-circle"></i>
+                            FALAR NO WHATSAPP
+                        </button>
+                        <button class="btn-call">
+                            <i data-lucide="phone"></i>
+                            LIGAR AGORA
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <div class="logo-icon">JB</div>
+                        <div>
+                            <h3>JUNIOR BORRACHA</h3>
+                            <p>Veículos</p>
+                        </div>
+                    </div>
+                    <p class="footer-description">
+                        Sua próxima conquista está aqui. Os melhores semi-novos da região com garantia e procedência garantida pelo Junior Borracha.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <i data-lucide="instagram"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i data-lucide="facebook"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h4>CATEGORIAS</h4>
+                    <ul>
+                        <li><a href="#">SUVs</a></li>
+                        <li><a href="#">Sedans</a></li>
+                        <li><a href="#">Hatchbacks</a></li>
+                        <li><a href="#">Picapes</a></li>
+                        <li><a href="#">Esportivos</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-contact">
+                    <h4>ATENDIMENTO</h4>
+                    <ul>
+                        <li>
+                            <i data-lucide="map-pin"></i>
+                            <span>Av. das Nações, 1500 - São Paulo, SP</span>
+                        </li>
+                        <li>
+                            <i data-lucide="phone"></i>
+                            <span>(11) 99999-9999</span>
+                        </li>
+                        <li>
+                            <i data-lucide="message-circle"></i>
+                            <span>Atendimento via WhatsApp</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="footer-hours">
+                    <h4>Horário de Funcionamento</h4>
+                    <p>Segunda a Sexta: 09h às 19h</p>
+                    <p>Sábados: 09h às 14h</p>
+                    <button class="btn-schedule">Agende uma Visita</button>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2024 Junior Borracha Veículos - Todos os direitos reservados</p>
+                <div class="footer-legal">
+                    <a href="#">Políticas</a>
+                    <a href="#">Termos de Uso</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="scripts.js"></script>
+</body>
+</html>
