@@ -1,12 +1,3 @@
-import { 
-    observarAutenticacao, 
-    listarCarros, 
-    logoutUsuario,
-    getUsuarioAtual,
-    loginUsuario,
-    registrarUsuario
-} from './firebase.js';
-
 // Dados dos veículos
 const INITIAL_VEHICLES = [
     {
@@ -177,12 +168,6 @@ const noResults = document.getElementById('noResults');
 const vehicleModal = document.getElementById('vehicleModal');
 const closeModal = document.getElementById('closeModal');
 const loadMoreContainer = document.getElementById('loadMoreContainer');
-const btnLogin = document.getElementById('btnLogin');
-const authModal = document.getElementById('authModal');
-const authForm = document.getElementById('authForm');
-const btnToggleAuth = document.getElementById('btnToggleAuth');
-const authTitle = document.getElementById('authTitle');
-const closeAuthModal = document.getElementById('closeAuthModal');
 const clearFilters = document.getElementById('clearFilters');
 const btnLoadMore = document.getElementById('btnLoadMore');
 const btnMenuMobile = document.querySelector('.btn-menu-mobile');
@@ -195,7 +180,6 @@ const drawerLinks = document.querySelectorAll('.drawer-link');
 let visibleItems = 12;
 let currentCategoryFilter = "Todas";
 let currentFilteredData = [];
-let isLoginMode = true;
 let favorites = JSON.parse(localStorage.getItem('jb_favorites')) || [];
 
 // Funções de Formatação
@@ -381,46 +365,6 @@ function toggleDrawer() {
     document.body.style.overflow = mobileDrawer.classList.contains('active') ? 'hidden' : 'auto';
 }
 
-if (btnLogin) btnLogin.onclick = (e) => {
-    const user = getUsuarioAtual();
-    if (user) {
-        // Se já está logado, o botão agora serve para deslogar (conforme lógica no DOMContentLoaded)
-        return; 
-    }
-    authModal.classList.remove('hidden');
-    document.body.style.overflow = 'hidden';
-};
-
-if (closeAuthModal) closeAuthModal.onclick = () => {
-    authModal.classList.add('hidden');
-    document.body.style.overflow = 'auto';
-};
-
-if (btnToggleAuth) btnToggleAuth.onclick = () => {
-    isLoginMode = !isLoginMode;
-    authTitle.textContent = isLoginMode ? 'Entrar na Conta' : 'Criar Nova Conta';
-    btnToggleAuth.innerHTML = isLoginMode ? 'Não tem uma conta? <strong>Cadastre-se</strong>' : 'Já tem uma conta? <strong>Entre</strong>';
-    authForm.querySelector('button').textContent = isLoginMode ? 'ENTRAR' : 'CADASTRAR';
-};
-
-if (authForm) authForm.onsubmit = async (e) => {
-    e.preventDefault();
-    const email = document.getElementById('authEmail').value;
-    const password = document.getElementById('authPassword').value;
-
-    try {
-        if (isLoginMode) {
-            await loginUsuario(email, password);
-        } else {
-            await registrarUsuario(email, password);
-        }
-        authModal.classList.add('hidden');
-        document.body.style.overflow = 'auto';
-    } catch (error) {
-        alert("Erro na autenticação: " + error.message);
-    }
-};
-
 if (btnMenuMobile) btnMenuMobile.onclick = toggleDrawer;
 if (closeDrawer) closeDrawer.onclick = toggleDrawer;
 if (drawerOverlay) drawerOverlay.onclick = toggleDrawer;
@@ -475,7 +419,7 @@ window.onclick = (event) => {
 };
 
 // Inicialização
-document.addEventListener('DOMContentLoaded', async () => {
+document.addEventListener('DOMContentLoaded', () => {
     // Preencher select de marcas baseado nos dados locais
     const uniqueBrands = [...new Set(VEHICLES_DATA.map(v => v.brand))];
     uniqueBrands.forEach(brand => {
@@ -483,26 +427,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         option.value = brand;
         option.textContent = brand;
         brandFilter.appendChild(option);
-    });
-
-    // Integrar carros do Firebase com os dados iniciais
-    try {
-        const firebaseVehicles = await listarCarros();
-        VEHICLES_DATA.push(...firebaseVehicles);
-    } catch (error) {
-        console.error("Erro ao carregar carros do Firebase:", error);
-    }
-
-    // Verificar usuário logado para ajustar o botão de login
-    observarAutenticacao((user) => {
-        if (user) {
-            btnLogin.innerHTML = `<i data-lucide="log-out"></i><span>Sair</span>`;
-            btnLogin.onclick = async () => {
-                await logoutUsuario();
-                window.location.reload();
-            };
-        }
-        lucide.createIcons();
     });
 
     currentFilteredData = VEHICLES_DATA;

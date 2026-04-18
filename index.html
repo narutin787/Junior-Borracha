@@ -40,10 +40,6 @@
             </div>
 
             <div class="navbar-actions">
-                <button id="btnLogin" class="btn-login">
-                    <i data-lucide="user"></i>
-                    <span>Entrar</span>
-                </button>
                 <a href="tel:5598985003061" class="btn-phone">
                     <i data-lucide="phone"></i>
                     <span>(98) 98500-3061</span>
@@ -368,36 +364,6 @@
         </div>
     </footer>
 
-    <!-- Modal de Autenticação (Login/Cadastro) -->
-    <div id="authModal" class="modal hidden">
-        <div class="modal-overlay"></div>
-        <div class="modal-container" style="max-width: 28rem;">
-            <button id="closeAuthModal" class="modal-close"><i data-lucide="x"></i></button>
-            <div class="modal-details" style="width: 100%;">
-                <div class="modal-header text-center">
-                    <h3 id="authTitle" class="modal-title" style="font-size: 1.5rem;">Entrar na Conta</h3>
-                    <p class="footer-description">Acesse para gerenciar seus favoritos e anúncios.</p>
-                </div>
-                <form id="authForm" class="modal-actions">
-                    <div class="spec-item" style="flex-direction: column; align-items: flex-start;">
-                        <label class="spec-label">E-mail</label>
-                        <input type="email" id="authEmail" class="search-input" style="background: white; border: 1px solid #e2e8f0; padding: 0.5rem; border-radius: 0.5rem;" required>
-                    </div>
-                    <div class="spec-item" style="flex-direction: column; align-items: flex-start;">
-                        <label class="spec-label">Senha</label>
-                        <input type="password" id="authPassword" class="search-input" style="background: white; border: 1px solid #e2e8f0; padding: 0.5rem; border-radius: 0.5rem;" required>
-                    </div>
-                    <button type="submit" class="btn-whatsapp" style="background: var(--primary-orange); margin-top: 1rem;">
-                        ENTRAR
-                    </button>
-                    <p class="text-center" style="font-size: 0.875rem; color: var(--slate-500); cursor: pointer;" id="btnToggleAuth">
-                        Não tem uma conta? <strong>Cadastre-se</strong>
-                    </p>
-                </form>
-            </div>
-        </div>
-    </div>
-
     <!-- Mobile Drawer (Menu Lateral) -->
     <div id="drawerOverlay" class="drawer-overlay"></div>
     <div id="mobileDrawer" class="mobile-drawer">
@@ -429,6 +395,6 @@
     </div>
 
     <!-- JavaScript -->
-    <script type="module" src="scripts.js"></script>
+    <script src="scripts.js"></script>
 </body>
 </html>
