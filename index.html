@@ -33,17 +33,21 @@
             </div>
 
             <div class="navbar-menu">
-                <a href="#" class="nav-link">Estoque</a>
-                <a href="#" class="nav-link">Venda seu Carro</a>
-                <a href="#" class="nav-link">Financiamento</a>
-                <a href="#" class="nav-link">Contato</a>
+                <a href="#inventory" class="nav-link">Estoque</a>
+                <a href="#sell" class="nav-link">Venda seu Carro</a>
+                <a href="#financing" class="nav-link">Financiamento</a>
+                <a href="#contact" class="nav-link">Contato</a>
             </div>
 
             <div class="navbar-actions">
-                <button class="btn-phone">
-                    <i data-lucide="phone"></i>
-                    <span>(11) 99999-9999</span>
+                <button id="btnLogin" class="btn-login">
+                    <i data-lucide="user"></i>
+                    <span>Entrar</span>
                 </button>
+                <a href="tel:5598985003061" class="btn-phone">
+                    <i data-lucide="phone"></i>
+                    <span>(98) 98500-3061</span>
+                </a>
                 <button class="btn-menu-mobile">
                     <i data-lucide="menu"></i>
                 </button>
@@ -81,6 +85,24 @@
                     </select>
                 </div>
 
+                <div class="filter-wrapper">
+                    <label for="priceSort"><i data-lucide="arrow-up-down" class="filter-icon"></i></label>
+                    <select id="priceSort" class="filter-select">
+                        <option value="default">Ordenar por</option>
+                        <option value="price-asc">Menor Preço</option>
+                        <option value="price-desc">Maior Preço</option>
+                        <option value="year-desc">Mais Novos</option>
+                    </select>
+                </div>
+
+                <div class="filter-wrapper price-range-wrapper">
+                    <i data-lucide="dollar-sign" class="filter-icon"></i>
+                    <div class="price-inputs">
+                        <input type="number" id="minPrice" placeholder="Mín" class="price-input">
+                        <input type="number" id="maxPrice" placeholder="Máx" class="price-input">
+                    </div>
+                </div>
+
                 <button type="submit" id="searchButton" class="btn-search">
                     Pesquisar
                 </button>
@@ -89,7 +111,7 @@
     </section>
 
     <!-- Inventory Section -->
-    <main class="inventory">
+    <main id="inventory" class="inventory">
         <div class="container">
             <div class="inventory-header">
                 <div class="section-title">
@@ -120,21 +142,104 @@
         </div>
     </main>
 
+    <!-- Venda seu Carro -->
+    <section id="sell" class="info-section hidden">
+        <div class="container">
+            <div class="info-grid">
+                <div class="info-content">
+                    <div class="section-title">
+                        <h3>VENDA SEU CARRO</h3>
+                        <div class="title-underline"></div>
+                    </div>
+                    <h4>Avaliação Justa e Pagamento Rápido</h4>
+                    <p>Quer vender seu veículo com segurança e sem burocracia? Na Junior Borracha Veículos, garantimos a melhor avaliação do mercado para compra ou troca.</p>
+                    <ul class="benefit-list">
+                        <li><i data-lucide="check-circle"></i> Avaliação imediata e profissional</li>
+                        <li><i data-lucide="check-circle"></i> Pagamento à vista na conta</li>
+                        <li><i data-lucide="check-circle"></i> A melhor avaliação na troca</li>
+                    </ul>
+                    <a href="https://api.whatsapp.com/send/?phone=5598985003061&text=Olá! Gostaria de vender meu carro." target="_blank" class="btn-cta">
+                        Quero Vender Meu Carro
+                    </a>
+                </div>
+                <div class="info-image">
+                    <img src="https://images.unsplash.com/photo-1560179707-f14e90ef3623?q=80&w=800&auto=format&fit=crop" alt="Venda seu carro" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Financiamento -->
+    <section id="financing" class="info-section bg-slate hidden">
+        <div class="container">
+            <div class="info-grid reverse">
+                <div class="info-image">
+                    <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=800&auto=format&fit=crop" alt="Financiamento" loading="lazy">
+                </div>
+                <div class="info-content">
+                    <div class="section-title">
+                        <h3>FINANCIAMENTO</h3>
+                        <div class="title-underline"></div>
+                    </div>
+                    <h4>As Melhores Taxas do Mercado</h4>
+                    <p>Temos parcerias estratégicas com os principais bancos para garantir as menores taxas de juros e aprovação de crédito facilitada.</p>
+                    <div class="bank-partners">
+                        <p>BV Financeira • Santander • Itaú • Bradesco • Safra</p>
+                    </div>
+                    <a href="https://api.whatsapp.com/send/?phone=5598985003061&text=Olá! Gostaria de fazer uma simulação de financiamento." target="_blank" class="btn-cta">
+                        Simular Financiamento
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contact" class="info-section hidden">
+        <div class="container">
+            <div class="section-title text-center">
+                <h3>CONTATO</h3>
+                <div class="title-underline mx-auto"></div>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-card-item">
+                    <i data-lucide="map-pin"></i>
+                    <h5>Nosso Endereço</h5>
+                    <p>Avenida Contorno Norte, 1 - Cohatrac IV<br>São Luís - MA</p>
+                </div>
+                <div class="contact-card-item">
+                    <i data-lucide="message-circle"></i>
+                    <h5>Atendimento Digital</h5>
+                    <p>WhatsApp: (98) 98500-3061<br>Segunda a Sábado</p>
+                </div>
+            </div>
+
+            <!-- Google Maps Interativo -->
+            <div class="contact-map">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3985.942790757788!2d-44.225139!3d-2.5255!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7f6920392c64755%3A0x6436e2f69a5a3a7!2sAv.%20Contorno%20Norte%2C%201%20-%20Cohatrac%20IV%2C%20S%C3%A3o%20Lu%C3%ADs%20-%20MA%2C%2065054-375!5e0!3m2!1spt-BR!2sbr!4v1715694321000!5m2!1spt-BR!2sbr" 
+                    width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
     <!-- Vehicle Modal -->
     <div id="vehicleModal" class="modal hidden">
         <div class="modal-overlay"></div>
         <div class="modal-container">
-            <button id="closeModal" class="modal-close">
+            <button id="closeModal" class="modal-close" aria-label="Fechar modal">
                 <i data-lucide="x"></i>
             </button>
             
             <div class="modal-content">
                 <div class="modal-image">
-                    <img id="modalImage" src="" alt="">
+                    <img id="modalImage" src="" alt="Imagem do veículo" loading="lazy">
                 </div>
                 
                 <div class="modal-details">
-                    <div class="modal-header">
+                    <div class="modal-header" aria-live="polite">
                         <span id="modalBrand" class="brand-badge"></span>
                         <h3 id="modalModel" class="modal-title"></h3>
                         <p id="modalPrice" class="modal-price"></p>
@@ -177,14 +282,14 @@
                     </div>
 
                     <div class="modal-actions">
-                        <button class="btn-whatsapp">
+                        <a href="https://api.whatsapp.com/send/?phone=5598985003061&text=Olá! Tenho interesse em um veículo." target="_blank" class="btn-whatsapp">
                             <i data-lucide="message-circle"></i>
                             FALAR NO WHATSAPP
-                        </button>
-                        <button class="btn-call">
+                        </a>
+                        <a href="tel:5598985003061" class="btn-call">
                             <i data-lucide="phone"></i>
                             LIGAR AGORA
-                        </button>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -207,7 +312,7 @@
                         Sua próxima conquista está aqui. Os melhores semi-novos da região com garantia e procedência garantida pelo Junior Borracha.
                     </p>
                     <div class="social-links">
-                        <a href="#" class="social-link">
+                        <a href="https://www.instagram.com/juniorborracha.veiculos/" target="_blank" class="social-link">
                             <i data-lucide="instagram"></i>
                         </a>
                         <a href="#" class="social-link">
@@ -219,11 +324,11 @@
                 <div class="footer-links">
                     <h4>CATEGORIAS</h4>
                     <ul>
-                        <li><a href="#">SUVs</a></li>
-                        <li><a href="#">Sedans</a></li>
-                        <li><a href="#">Hatchbacks</a></li>
-                        <li><a href="#">Picapes</a></li>
-                        <li><a href="#">Esportivos</a></li>
+                        <li><a href="javascript:void(0)" onclick="filterByCategory('SUVs')">SUVs</a></li>
+                        <li><a href="javascript:void(0)" onclick="filterByCategory('Sedans')">Sedans</a></li>
+                        <li><a href="javascript:void(0)" onclick="filterByCategory('Hatchbacks')">Hatchbacks</a></li>
+                        <li><a href="javascript:void(0)" onclick="filterByCategory('Picapes')">Picapes</a></li>
+                        <li><a href="javascript:void(0)" onclick="filterByCategory('Esportivos')">Esportivos</a></li>
                     </ul>
                 </div>
 
@@ -232,15 +337,15 @@
                     <ul>
                         <li>
                             <i data-lucide="map-pin"></i>
-                            <span>Av. das Nações, 1500 - São Paulo, SP</span>
+                            <span>Avenida Contorno Norte, 1 - Cohatrac IV</span>
                         </li>
                         <li>
                             <i data-lucide="phone"></i>
-                            <span>(11) 99999-9999</span>
+                            <span>(98) 98500-3061</span>
                         </li>
                         <li>
                             <i data-lucide="message-circle"></i>
-                            <span>Atendimento via WhatsApp</span>
+                            <a href="https://api.whatsapp.com/send/?phone=5598985003061" target="_blank" style="color: inherit; text-decoration: none;">Atendimento via WhatsApp</a>
                         </li>
                     </ul>
                 </div>
@@ -249,7 +354,7 @@
                     <h4>Horário de Funcionamento</h4>
                     <p>Segunda a Sexta: 09h às 19h</p>
                     <p>Sábados: 09h às 14h</p>
-                    <button class="btn-schedule">Agende uma Visita</button>
+                    <a href="https://api.whatsapp.com/send/?phone=5598985003061&text=Olá! Gostaria de agendar um atendimento." target="_blank" class="btn-schedule">Agende seu Atendimento</a>
                 </div>
             </div>
             
@@ -263,7 +368,67 @@
         </div>
     </footer>
 
+    <!-- Modal de Autenticação (Login/Cadastro) -->
+    <div id="authModal" class="modal hidden">
+        <div class="modal-overlay"></div>
+        <div class="modal-container" style="max-width: 28rem;">
+            <button id="closeAuthModal" class="modal-close"><i data-lucide="x"></i></button>
+            <div class="modal-details" style="width: 100%;">
+                <div class="modal-header text-center">
+                    <h3 id="authTitle" class="modal-title" style="font-size: 1.5rem;">Entrar na Conta</h3>
+                    <p class="footer-description">Acesse para gerenciar seus favoritos e anúncios.</p>
+                </div>
+                <form id="authForm" class="modal-actions">
+                    <div class="spec-item" style="flex-direction: column; align-items: flex-start;">
+                        <label class="spec-label">E-mail</label>
+                        <input type="email" id="authEmail" class="search-input" style="background: white; border: 1px solid #e2e8f0; padding: 0.5rem; border-radius: 0.5rem;" required>
+                    </div>
+                    <div class="spec-item" style="flex-direction: column; align-items: flex-start;">
+                        <label class="spec-label">Senha</label>
+                        <input type="password" id="authPassword" class="search-input" style="background: white; border: 1px solid #e2e8f0; padding: 0.5rem; border-radius: 0.5rem;" required>
+                    </div>
+                    <button type="submit" class="btn-whatsapp" style="background: var(--primary-orange); margin-top: 1rem;">
+                        ENTRAR
+                    </button>
+                    <p class="text-center" style="font-size: 0.875rem; color: var(--slate-500); cursor: pointer;" id="btnToggleAuth">
+                        Não tem uma conta? <strong>Cadastre-se</strong>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Drawer (Menu Lateral) -->
+    <div id="drawerOverlay" class="drawer-overlay"></div>
+    <div id="mobileDrawer" class="mobile-drawer">
+        <div class="drawer-header">
+            <div class="navbar-brand">
+                <div class="logo-icon">JB</div>
+                <div class="brand-text">
+                    <h1>JUNIOR BORRACHA</h1>
+                    <p>Veículos</p>
+                </div>
+            </div>
+            <button id="closeDrawer" class="btn-close-drawer" aria-label="Fechar menu">
+                <i data-lucide="x"></i>
+            </button>
+        </div>
+        <div class="drawer-content">
+            <a href="#inventory" class="drawer-link">Estoque</a>
+            <a href="#sell" class="drawer-link">Venda seu Carro</a>
+            <a href="#financing" class="drawer-link">Financiamento</a>
+            <a href="#contact" class="drawer-link">Contato</a>
+            
+            <div class="drawer-footer-actions">
+                <a href="tel:5598985003061" class="btn-phone" style="display: flex; width: 100%; justify-content: center;">
+                    <i data-lucide="phone"></i>
+                    <span>(98) 98500-3061</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
     <!-- JavaScript -->
-    <script src="scripts.js"></script>
+    <script type="module" src="scripts.js"></script>
 </body>
 </html>
